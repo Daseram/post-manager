@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12 text-center" *ngIf="post?.photoUrl">
+    <img [src]="getPhoto(post?.photoUrl)" alt="{{post?.title}}" class="img-responsive">
+  </div>  
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <h4 class="text-center">{{post?.title}}</h4>
+    <p class="justify-content">{{post?.description}}</p>
+    <p>
+      <span *ngFor="let tag of post?.tags" class="badge badge-primary tags">{{tag}}</span>
+    </p>
+  </div>
+</div>
+<div *ngIf="!post" class="row text-center">
+  <div class="col">
+      <h2 class="text-center">Post not Found</h2>
+      <button class="btn btn-primary text-center" routerLink="/">Go Back!</button>
+  </div>    
+</div>
