@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavbarService } from '../navbar.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  currentRoute = '/';
+  createRoute = 'create-post';
+
+  constructor(private router: Router, private navService: NavbarService) { }
 
   ngOnInit() {
+    this.navService.route.subscribe( newRoute => this.currentRoute = newRoute );
   }
 
+  goToCreatePost() {
+    this.router.navigate(['/create-post']);
+  }
 }

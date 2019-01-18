@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
+import { NavbarService } from 'src/app/navbar.service';
 
 @Component({
   selector: 'app-create-post',
@@ -16,9 +17,11 @@ export class CreatePostComponent implements OnInit {
   imageUrl = '../../assets/images/default-landscape.png';
   imageToUpload: File;
 
-  constructor(private fb: FormBuilder, private postService: PostService, private router: Router) { }
+  constructor(private fb: FormBuilder, private postService: PostService, private router: Router,
+              private navService: NavbarService) { }
 
   ngOnInit() {
+    this.navService.setCurrentRoute('create-post');
     this.postForm = this.fb.group({
       'title': ['', Validators.required],
       'description': ['', Validators.required]

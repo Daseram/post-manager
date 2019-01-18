@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../post.model';
 import { Router } from '@angular/router';
+import { NavbarService } from 'src/app/navbar.service';
 
 @Component({
   selector: 'app-posts',
@@ -12,9 +13,10 @@ export class PostsComponent implements OnInit {
 
   posts: Post[];
 
-  constructor(private postService: PostService, private router: Router) { }
+  constructor(private postService: PostService, private router: Router, private navService: NavbarService) { }
 
   ngOnInit() {
+    this.navService.setCurrentRoute('/');
     this.getPosts();
   }
 

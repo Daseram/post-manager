@@ -4,7 +4,7 @@
     <nav>
       <ul>
           <li><a routerLink="/">Latest Posts!</a></li>
-        <li><a routerLink="/create-post" class="add-post">+</a></li>
+        <li *ngIf="currentRoute !== createRoute" (click)="goToCreatePost()"><span class="badge badge-info">+</span></li>
       </ul>
     </nav>
   </div>

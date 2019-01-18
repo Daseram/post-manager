@@ -15,10 +15,10 @@ header {
         ul {
             list-style-type: none;
             margin: 0; padding: 0;
+            display: flex;
 
             li {
-                float: left;
-
+                margin-right: 5px;
                 a {
                     padding: 1.5em;
                     text-transform: uppercase;
@@ -27,12 +27,30 @@ header {
                     &:hover {
                         background: #8E2BFF;
                     }
-                    &.add-post {
-                        font-size: 1.2em;
-                        padding: .5em;
-                    }
+                }
+
+                span {
+                    display: inline;
+                    color: white;
+                    cursor: pointer;
+                    text-align: center;
+                    font-size: 1em;       
+                  }
+                  span:before {
+                    width: 0px;
+                    overflow: hidden;
+                    display: inline-block;
+                    vertical-align: middle;
+                    transition: .2s linear;
+                  }
+                  span:nth-child(1):before {
+                    content: 'Add new post ';
+                  }
+            
+                  &:hover span:nth-child(1):before {
+                    width: 150px;
                 }
             }
         }
-    }
+    }    
 }
